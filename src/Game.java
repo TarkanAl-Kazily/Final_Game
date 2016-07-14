@@ -1,10 +1,10 @@
 import javax.swing.JOptionPane;
-
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class Game{
 	private int hp = 10;
 	private int sp = 1;
@@ -66,7 +66,7 @@ public class Game{
 	private int loc = 1;
 	private String output = "";
 	private static final Game GAME = new Game();
-	
+
 	public static void main(String args[]){
 		try {
 			GAME.play();
@@ -74,7 +74,7 @@ public class Game{
 			JOptionPane.showMessageDialog(null, "Error: " + e.getLocalizedMessage());
 		}
 	}
-	
+
 	private void play() throws FileNotFoundException{
 		String choice = JOptionPane.showInputDialog("Would you like to load a saved game? (y/n)");
 		if (choice.equalsIgnoreCase("y")){
@@ -208,6 +208,7 @@ public class Game{
 			JOptionPane.showMessageDialog(null, "You win!");
 		}
 	}
+
 	private void encounter(int d) throws FileNotFoundException{
 		double r = Math.random() * 10;
 		switch (d){
@@ -314,6 +315,7 @@ public class Game{
 			menu();
 		}
 	}
+
 	private void battle(String eNAME){
 		switch (eNAME){
 		case "green slime":
@@ -1269,6 +1271,7 @@ public class Game{
 			lv++;
 		}
 	}
+
 	private void gemShop(int s) throws FileNotFoundException{
 		gems = true;
 		String c;
@@ -1329,6 +1332,7 @@ public class Game{
 			}
 		}
 	}
+
 	private void menu() throws FileNotFoundException{
 		String c = JOptionPane.showInputDialog("Would you like to use the menu (m) or continue (Any other key)?");
 		if (c.equals("m")){
@@ -1558,6 +1562,7 @@ public class Game{
 			}
 		}
 	}
+
 	private void save() throws FileNotFoundException{
 		PrintWriter writer = new PrintWriter("C:/Users/Public/Save");
 		writer.print("");
@@ -1615,6 +1620,7 @@ public class Game{
 		writer.print(loc);
 		writer.close();
 	}
+
 	private void load() throws FileNotFoundException{
         Scanner s = new Scanner(new File ("C:/Users/Public/Save"));
         hp = s.nextInt();
